@@ -3,8 +3,8 @@ import sys
 
 rNum = random.randrange(0,100)
 def num_guessing_game(answer, rNum):
-    # rNum = randomNum
-    print(answer, rNum)
+    answer = int(answer)
+    # print(answer, rNum)
     if ((answer < rNum) and (rNum - answer >= 10 )):
         print("You're getting colder \nYou're too low")
     elif ((answer > rNum) and (answer - rNum >= 10 )):
@@ -17,6 +17,14 @@ def num_guessing_game(answer, rNum):
         print("Correct! you are on fire!")
         return
 
-num_guessing_game(2, rNum)
-num_guessing_game(30, rNum)
-num_guessing_game(50, rNum)
+
+for x in range(10):
+    print('What is your number?')
+    player_guess = sys.stdin.readline()
+    try:
+        player_guess = int(player_guess)
+        num_guessing_game(player_guess, rNum)
+    except:
+        print("fuck you give me a number")
+    if player_guess == rNum:
+       break
