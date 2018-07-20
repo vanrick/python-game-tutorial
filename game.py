@@ -1,7 +1,8 @@
 import random
 import sys
+from string import Template
 
-rNum = random.randrange(0,100)
+rNum = random.randrange(1,100)
 def num_guessing_game(answer, rNum):
     answer = int(answer)
     # print(answer, rNum)
@@ -18,8 +19,18 @@ def num_guessing_game(answer, rNum):
         return
 
 
-for x in range(10):
-    print('What is your number?')
+for x in range(6):
+    numberOfTries = 5-x
+    if numberOfTries == 5:
+        print('\nPick a number between 1-100? \nYou have %s tries to guess the correct number.'%(numberOfTries,))
+    elif numberOfTries == 1:
+        print('\nPick a number between 1-100? \nLast one, make it count.')
+    elif numberOfTries == 0:
+        print('GAME OVER!!')
+        break
+    else:
+        print('\nPick a number between 1-100? \nYou have %s tries left.'%(numberOfTries,))
+            
     player_guess = sys.stdin.readline()
     try:
         player_guess = int(player_guess)

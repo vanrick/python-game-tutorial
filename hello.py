@@ -121,17 +121,152 @@ age = 30
 #     i += 1
 #functions reuse and write more readable code
 
-def addNumbers(fNum,lNum):
-    sumNum = fNum + lNum
-    return sumNum
+# def addNumbers(fNum,lNum):
+#     sumNum = fNum + lNum
+#     return sumNum
 
-string = addNumbers(1,4)
-print(string)
+# string = addNumbers(1,4)
+# print(string)
 
-#sys
+# #sys
 
-print('What is your name?')
+# print('What is your name?')
 
-namez = sys.stdin.readline()
+# namez = sys.stdin.readline()
 
-print("hello ", namez)
+# print("hello ", namez)
+
+# def answer(plaintext):
+#     brailleDict = {
+#     " ": "000000",
+#     "a": "100000",
+#     "b": "110000",
+#     "c": "100100",
+#     "d": "100110",
+#     "e": "100010",
+#     "f": "110100",
+#     "g": "110110",
+#     "h": "110010",
+#     "i": "010100",
+#     "j": "010110",
+#     "k": "101000",
+#     "l": "111000",
+#     "m": "101100",
+#     "n": "101110",
+#     "o": "101010",
+#     "p": "111100",
+#     "q": "111110",
+#     "r": "111010",
+#     "s": "011100",
+#     "t": "011110",
+#     "u": "101001",
+#     "v": "111001",
+#     "w": "010111",
+#     "x": "101101",
+#     "y": "101111",
+#     "z": "101011"
+# }
+    
+#     outputArray = []
+#     plaintextArray = list(plaintext)
+    
+#     for letter in plaintextArray:
+#         if letter.lower() != letter:
+#             outputArray.append("000001"+brailleDict[letter.lower()])
+#         else:
+#             outputArray.append(brailleDict[letter])
+#     return ''.join(outputArray)
+        
+# print(answer('aba A a'))
+# | 7
+# | 4 8
+# | 2 5 9
+# | 1 3 6 10
+
+# def yTable(y):
+#     result = [1]
+#     i = 1
+#     while(i <= y):
+#         if i == 1:
+#             result.append(2)
+#         else:
+#             result.append(i+result[i-1])
+#         i += 1
+#     return result[len(result)-1]
+
+# yTable(10)
+
+# def xTable(x):
+#     result = [1]
+#     i = 2
+#     while(i <= x):
+#         if i == 2:
+#             result.append(3)
+#         else:
+#             result.append(i+result[i-2])
+#         i += 1
+#     return result[len(result)-1]
+
+# xTable(5)
+
+# def answer(x, y):
+#     xArr = [1]
+#     i = 2
+#     while(i <= x):
+#         if i == 2:
+#             xArr.append(3)
+#         else:
+#             xArr.append(i+xArr[i-2])
+#         i += 1
+#     xResult = xArr[len(xArr)-1]
+
+#     finalResult = []
+#     j = x
+#     y = y+j-2
+#     while(j <= y):
+#         if len(finalResult)==0:
+#             finalResult.append(j + xResult)
+#         else:
+#             finalResult.append(j+finalResult[j-(x+1)])
+#         j+=1
+#     return str(finalResult[len(finalResult)-1])
+    
+# print(answer(12345,67890))
+
+
+#solution = (x*y)*2
+def answer(s):
+    sArray = list(s)
+    arrowsArr = []
+    lastLeftArrowIndex = 0
+    a = 0
+
+    for char in sArray:
+        if char == '>':
+                arrowsArr.append(char)
+        elif '>' in arrowsArr and char != '-':
+                arrowsArr.append(char)
+        for i, char in enumerate(arrowsArr):
+            if char == '<' and lastLeftArrowIndex < i:
+                lastLeftArrowIndex = i
+                arrowsArr=arrowsArr[:lastLeftArrowIndex+1]
+
+        if '>' in arrowsArr == False:
+            return 0
+        elif '<' in arrowsArr == False:
+            return 0
+        else:
+            for i, char in enumerate(arrowsArr):
+                if char == '>':
+                    print('count: ',str(arrowsArr).count("<", 0, len(arrowsArr)-1)
+
+
+# print(2, answer('>----<'))
+# print(6, answer('>--<-->--<'))
+# print(2, answer('<-->--<-->>'))
+# print(6, answer('<<>>><'))
+# print(4, answer('<<>><'))
+# print(0, answer('>>>>>>'))
+# print(0, answer('<<<<<<<'))
+# print(0, answer('<------>'))
+# print(0, answer('--------'))
