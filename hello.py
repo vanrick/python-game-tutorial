@@ -236,37 +236,20 @@ age = 30
 
 #solution = (x*y)*2
 def answer(s):
-    sArray = list(s)
-    arrowsArr = []
-    lastLeftArrowIndex = 0
-    a = 0
-
-    for char in sArray:
+  a=0
+  for i, char in enumerate(s):
         if char == '>':
-                arrowsArr.append(char)
-        elif '>' in arrowsArr and char != '-':
-                arrowsArr.append(char)
-        for i, char in enumerate(arrowsArr):
-            if char == '<' and lastLeftArrowIndex < i:
-                lastLeftArrowIndex = i
-                arrowsArr=arrowsArr[:lastLeftArrowIndex+1]
-
-        if '>' in arrowsArr == False:
-            return 0
-        elif '<' in arrowsArr == False:
-            return 0
-        else:
-            for i, char in enumerate(arrowsArr):
-                if char == '>':
-                    print('count: ',str(arrowsArr).count("<", 0, len(arrowsArr)-1)
+          a+= str(s).count("<",i,len(s))
+  
+  return a*2
 
 
-# print(2, answer('>----<'))
-# print(6, answer('>--<-->--<'))
-# print(2, answer('<-->--<-->>'))
-# print(6, answer('<<>>><'))
-# print(4, answer('<<>><'))
-# print(0, answer('>>>>>>'))
-# print(0, answer('<<<<<<<'))
-# print(0, answer('<------>'))
-# print(0, answer('--------'))
+print(2, answer('>----<'))
+print(6, answer('>--<-->--<'))
+print(2, answer('<-->--<-->>'))
+print(6, answer('<<>>><'))
+print(4, answer('<<>><'))
+print(0, answer('>>>>>>'))
+print(0, answer('<<<<<<<'))
+print(0, answer('<------>'))
+print(0, answer('--------'))
