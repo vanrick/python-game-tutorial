@@ -235,21 +235,14 @@ age = 30
 
 
 #solution = (x*y)*2
-def answer(s):
-  a=0
-  for i, char in enumerate(s):
-        if char == '>':
-          a+= str(s).count("<",i,len(s))
-  
-  return a*2
+# def answer(s):
+#   a=0
+#   for i, char in enumerate(s):
+#         if char == '>':
+#           a+= str(s).count("<",i,len(s))
+#   return a*2
 
 
-print(2, answer('>----<'))
-print(6, answer('>--<-->--<'))
-print(2, answer('<-->--<-->>'))
-print(6, answer('<<>>><'))
-print(4, answer('<<>><'))
-print(0, answer('>>>>>>'))
-print(0, answer('<<<<<<<'))
-print(0, answer('<------>'))
-print(0, answer('--------'))
+# print(2, answer('>----<'))
+# print(6, answer('>--<-->--<'))
+# print(2, answer('<-->--<-->>'))
