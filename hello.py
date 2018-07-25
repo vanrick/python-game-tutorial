@@ -246,3 +246,30 @@ age = 30
 # print(2, answer('>----<'))
 # print(6, answer('>--<-->--<'))
 # print(2, answer('<-->--<-->>'))
+
+
+def answer(M, F):
+    M = int(M)
+    F = int(F)
+    cycle = 0
+
+    while M != F:
+        if(M > F):
+            cycle += M/F
+            M %= F
+            if (M == 0):
+                cycle -= 1
+                M = F
+        else:
+            cycle += F/M
+            F %= M
+            if (F == 0):
+                F = M
+                cycle -= 1
+
+    if(M != 1):
+        return 'impossible'
+
+    return str(cycle)
+
+print(answer(2,4))
