@@ -12,3 +12,14 @@ import requests
 # # print(type(data))
 # # print(data)
 # print(response.headers['Content-Type'])
+
+# Finding the number of people in space
+
+response = requests.get("http://api.open-notify.org/astros.json")
+data = response.json()
+# print(data)
+# print('number of people ',data['number'])
+# print('peoples names ',data['people'][1])
+peoplesNames = data['people']
+for name in peoplesNames:
+    print(name['name'])
